@@ -58,8 +58,11 @@ def main(resume):
 
     print(programming)
     recentcompany=getCategory.recentcompany(tokens)
-    phonenumber=getphonenumber.getnumber(tokens)
-    fout.write("\\getnumber{" + str(phonenumber) + "}\n")
+    numbers = getphonenumber.extract_phone_numbers(resume)
+    emails = getphonenumber.extract_email_addresses(resume)
+    names = getphonenumber.extract_names(resume)
+    print(str(numbers[i])+"\n"+str(emails[i])+"\n"+str(names[i]))
+    fout.write("\\getnumber{" + str(numbers[i]) + "}\n")
     fout.write("\\recentcompany{" + recentcompany + "}\n")
     fout.close()
     return (email)
