@@ -3,6 +3,7 @@ import pdftotext
 import getCategory
 import tokenizer
 import gender_guesser
+import getphonenumber
 
 def init():
 
@@ -57,6 +58,8 @@ def main(resume):
 
     print(programming)
     recentcompany=getCategory.recentcompany(tokens)
+    phonenumber=getphonenumber.getnumber(tokens)
+    fout.write("\\getnumber{" + str(phonenumber) + "}\n")
     fout.write("\\recentcompany{" + recentcompany + "}\n")
     fout.close()
     return (email)
